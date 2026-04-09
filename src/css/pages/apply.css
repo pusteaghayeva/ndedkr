@@ -1,0 +1,68 @@
+.faq-section {
+  color: var(--menuColor);
+  margin: 76px 0;
+}
+
+.apply-left {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.apply-right .accordion-button {
+  background-color: var(--managementBg);
+  color: var(--menuColor);
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  padding: 25px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.apply-right .accordion-button:not(.collapsed) {
+  background-color: var(--managementBg);
+  color: var(--menuColor);
+}
+
+.apply-right .accordion-body {
+  background-color: var(--managementBg);
+  animation: slideDown 0.3s ease-out;
+  color: var(--menuColor);
+  padding: 30px;
+  font-size: 18px;
+}
+.apply-right .accordion-button:focus {
+  box-shadow: none;
+}
+
+.apply-right .accordion-item {
+  margin-bottom: 28px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    margin: 36px 0;
+  }
+  .apply-left {
+    font-size: 20px;
+  }
+  .apply-right .accordion-button {
+    font-size: 16px;
+  }
+  .apply-right .accordion-body {
+    padding: 20px;
+    font-size: 15px;
+  }
+}

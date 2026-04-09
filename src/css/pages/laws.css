@@ -1,0 +1,50 @@
+.laws{
+    margin: 50px 0;
+}
+.laws-blog {
+  background-color: var(--managementBg);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  padding: 29px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--menuColor);
+  margin: 16px 0;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.laws-blog .file-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 37px;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.laws-blog:hover {
+  background-color: var(--newsBorder); 
+  transform: translateY(-5px);
+}
+
+.laws-blog:hover .file-icon {
+  transform: scale(1.06) rotate(10deg);
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+  .laws-blog {
+    font-size: 14px;
+  }
+  .laws-blog .file-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+}
