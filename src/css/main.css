@@ -718,15 +718,17 @@ a {
   );
 }
 .useful-links-name {
-  font-size: 14px;
-  color: var(--mainColor);
+  color: var(--menuColor);
   margin-top: 33px;
   font-size: 14px;
+  font-weight: 400;
+  /* font-family: var(--fontBasic); */
 }
 .useful-links-site {
   font-size: 12px;
   color: var(--usefulLinksColor);
   margin: 16px 0 12px;
+  font-family: var(--fontBasic);
 }
 .useful-links-link {
   position: absolute;

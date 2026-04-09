@@ -1,18 +1,20 @@
 :root {
-    --navBg: rgba(155, 198, 226, 1);
-    --menuColor: rgba(35, 69, 94, 1);
-    --fontNivea: 'Nivea', sans-serif;
-    --carouselBtn: rgba(139, 140, 137, 1);
-    --arrowColor: rgb(37, 36, 36);
-    --managementTextColor: #7D7987;
-    --postSlideBg: rgba(246, 248, 250, 1);
-    --postSlideBorder: rgba(235, 235, 235, 1);
-    --newsDateColor: rgba(0, 0, 0, 0.65);
-    --newsBorder: rgba(133, 179, 209, 1);
-    --usefulLinksColor:rgba(48, 48, 48, 1);
-    --whiteColor: rgba(255, 255, 255, 1);
-    --managementBg: rgba(229, 236, 243, 1);
-    /* --dateColor: #585858;
+  --navBg: rgba(155, 198, 226, 1);
+  --menuColor: rgba(35, 69, 94, 1);
+  --fontNivea: "Nivea", sans-serif;
+  --carouselBtn: rgba(139, 140, 137, 1);
+  --arrowColor: rgb(37, 36, 36);
+  --managementTextColor: #7d7987;
+  --postSlideBg: rgba(246, 248, 250, 1);
+  --postSlideBorder: rgba(235, 235, 235, 1);
+  --newsDateColor: rgba(0, 0, 0, 0.65);
+  --newsBorder: rgba(133, 179, 209, 1);
+  --usefulLinksColor: rgba(48, 48, 48, 1);
+  --whiteColor: rgba(255, 255, 255, 1);
+  --managementBg: rgba(229, 236, 243, 1);
+  --fontBasic: "Basic", sans-serif;
+
+  /* --dateColor: #585858;
     --whiteColor: rgba(255, 255, 255, 1);
     --announcementColor: rgba(2, 52, 96, 1);
     --activeTitle: #C11E1E;

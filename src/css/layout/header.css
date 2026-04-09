@@ -286,6 +286,7 @@ p {
 .nav-link:hover,
 .nav-link:focus {
   color: var(--colorRed);
+  color: var(--whiteColor);
 }
 
 .fa-chevron-down {
@@ -325,7 +326,7 @@ p {
 
 .navbar .active {
   color: rgb(224, 224, 224) !important;
-  color: red !important;
+  color: var(--newsDateColor) !important;
 }
 
 .form-icon {
@@ -616,15 +617,86 @@ p {
 }
 
 /* Hover yalnız böyük ekran üçün */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .navbar .dropdown:hover .dropdown-menu {
     display: block;
   }
-}
+} */
 
 /* Kiçik ekran: hover deaktiv, Bootstrap default toggle işləyir */
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .navbar .dropdown:hover .dropdown-menu {
     display: none;
   }
+} */
+
+
+/* Desktop hover */
+/* @media (min-width: 992px) {
+
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar .dropdown:hover .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+
+} */
+/* Desktop hover: 992px və yuxarı */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block !important; /* hover-də aç */
+  }
+
+  .navbar .dropdown:hover > .dropdown-toggle > i.fa-chevron-down {
+    transform: rotate(180deg); /* ikon fırlansın */
+    transition: 0.3s ease-in-out;
+  }
 }
+
+/* Mobile click: 991px və aşağı */
+@media (max-width: 991px) {
+  .navbar .dropdown-menu {
+    display: none;
+  }
+
+  .navbar .dropdown.show > .dropdown-menu {
+    display: block;
+  }
+
+  .navbar .dropdown > .fa-chevron-down {
+    transform: rotate(0deg);
+    transition: 0.3s;
+  }
+
+  .navbar .dropdown.show > .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+/* Mobile click */
+@media (max-width: 991px) {
+
+  .navbar .dropdown-menu {
+    display: none;
+  }
+
+  .navbar .dropdown.show .dropdown-menu {
+    display: block;
+  }
+
+  .navbar .dropdown .fa-chevron-down {
+    transform: rotate(0);
+    transition: .3s;
+  }
+
+  .navbar .dropdown.show .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+
+  .navbar-collapse.show {
+    background-color: rgba(225,225,225,0.95);
+  }
+
+}
+
