@@ -1,290 +1,64 @@
-$(() => {
+document.addEventListener("DOMContentLoaded", function () {
 
+    const searchIcon = document.querySelector(".search-icon");
+    const searchBox = document.querySelector(".search-box");
+    const input = document.querySelector(".search-box input");
+    const clearIcon = document.querySelector(".clear-icon");
+    searchIcon.addEventListener("click", function () {
+        searchBox.classList.toggle("active");
+        input.focus();
+    });
+
+    input.addEventListener("input", function () {
+        if (input.value.trim().length > 0) {
+            searchBox.classList.add("has-text");
+        } else {
+            searchBox.classList.remove("has-text");
+        }
+    });
+
+    clearIcon.addEventListener("click", function () {
+        input.value = "";
+        searchBox.classList.remove("has-text");
+        input.focus();
+    });
+
+    input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            const query = input.value.trim();
+            if (!query) return;
+
+            console.log("Axtar:", query);
+
+        }
+    });
+
+    document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (e) {
+            if (window.innerWidth >= 992) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    const menu = document.querySelector(".menu-section");
+    const header = document.querySelector(".header-img");
 
     function fixMenu() {
-        let imgHeight = $(".header-img").height() + $(".header-info").height();
-        if ($(window).scrollTop() > imgHeight) {
-            $(".menu-section").css({ position: "fixed", top: "0" });
-            $(".navbar").css({ "background-color": "rgba(225, 225, 225, 1)" });
-            $(".dropdown-menu").css({ "background-color": "rgba(25, 106, 180, 1)" });
-            $(".form-section").css({ "background-color": "rgba(20, 52, 99, .7)" });
+        const headerHeight = header.offsetHeight;
+
+        if (window.scrollY >= headerHeight) {
+            menu.classList.add("fixed");
+            document.body.style.paddingTop = menu.offsetHeight + "px";
         } else {
-            $(".menu-section").css({ position: "sticky", top: "0" });
-            $(".navbar").css({ "background-color": "rgba(225, 225, 225, 1)" }); //deyisdim
-            $(".dropdown-menu").css({ "background-color": "rgba(25, 106, 180, 1)" });
-            $(".form-section").css({ "background-color": "#375074" });
+            menu.classList.remove("fixed");
+            document.body.style.paddingTop = "0px";
         }
     }
 
-    fixMenu();
-
-    $(window).scroll(function () {
-        fixMenu();
-    })
-
-    $(window).resize(function () {
-        fixMenu();
-    })
-
-$(document).on("click", ".menu-btn", () => {
-
-    $("#menuContainer").css({
-        "margin-left": "0",
-        "margin-right": "0",
-        "min-width": "100vw",
-        "max-width": "100vw"
-    });
-
-    $(".navbar-collapse").addClass("show");
-
-    $(".navbar-toggler")
-        .removeClass("menu-btn")
-        .addClass("menu-open");
-
+    window.addEventListener("scroll", fixMenu);
+    window.addEventListener("resize", fixMenu);
 });
-
-    $(document).on("click", ".menu-open", () => {
-        $("#menuContainer").css({ "margin-left": "auto", "margin-right": "auto", "min-width": "auto", "max-width": "auto" });
-        $(".dropdown-menu").css({ "border-top-right-radius": "0px", "border-top-left-radius": "0px" });
-        $(".navbar-toggler").removeClass("menu-open");
-        $(".navbar-toggler").addClass("menu-btn");
-        $(".menu-section").css({ "position": "static" });
-        fixMenu();
-    })
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-    // const dropdowns = document.querySelectorAll(".navbar .dropdown");
-
-    // dropdowns.forEach(drop => {
-
-    //     const toggle = drop.querySelector(".dropdown-toggle");
-    //     const menu = drop.querySelector(".dropdown-menu");
-
-    //     toggle.addEventListener("click", function (e) {
-
-    //         if (window.innerWidth < 992) {
-
-    //             e.preventDefault();
-    //             e.stopPropagation();
-
-    //             const isOpen = drop.classList.contains("show");
-
-    //             // digerlerini bagla
-    //             dropdowns.forEach(item => {
-    //                 item.classList.remove("show");
-    //                 const m = item.querySelector(".dropdown-menu");
-    //                 if (m) m.classList.remove("show");
-    //             });
-
-    //             // eger bagli idise ac
-    //             if (!isOpen) {
-    //                 drop.classList.add("show");
-    //                 menu.classList.add("show");
-    //             }
-
-    //         }
-
-    //     });
-
-    // });
-$(document).ready(function () {
-
-    function mobileDropdown() {
-
-        if ($(window).width() < 992) {
-
-            $(".dropdown-toggle").attr("data-bs-toggle", "");
-
-            $(".navbar .dropdown-toggle").off("click").on("click", function (e) {
-
-                e.preventDefault();
-
-                let parent = $(this).parent();
-                let menu = parent.find(".dropdown-menu");
-
-                if (parent.hasClass("show")) {
-
-                    parent.removeClass("show");
-                    menu.removeClass("show");
-
-                } else {
-
-                    $(".navbar .dropdown").removeClass("show");
-                    $(".dropdown-menu").removeClass("show");
-
-                    parent.addClass("show");
-                    menu.addClass("show");
-
-                }
-
-            });
-
-        } else {
-
-            $(".dropdown-toggle").attr("data-bs-toggle", "dropdown");
-
-            $(".navbar .dropdown").removeClass("show");
-            $(".dropdown-menu").removeClass("show");
-
-        }
-
-    }
-
-    mobileDropdown();
-
-    $(window).resize(function () {
-        mobileDropdown();
-    });
-
-});
-    // menu xaricine klik edende baglansin
-    document.addEventListener("click", function () {
-
-        if (window.innerWidth < 992) {
-
-            dropdowns.forEach(item => {
-                item.classList.remove("show");
-
-                const m = item.querySelector(".dropdown-menu");
-                if (m) m.classList.remove("show");
-            });
-
-        }
-
-    });
-
-});
-})
-$(() => {
-
-  function mobileDropdown() {
-    if ($(window).width() < 992) {
-
-      $(".dropdown-toggle").attr("data-bs-toggle", "");
-
-      $(".navbar .dropdown-toggle").off("click").on("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation(); // önəmli: document click-in qarışmasının qarşısı alınır
-
-        let parent = $(this).parent();
-        let menu = parent.find(".dropdown-menu");
-        let icon = $(this).find("i.fa-chevron-down");
-
-        if (parent.hasClass("show")) {
-          parent.removeClass("show");
-          menu.slideUp(200);
-          icon.css("transform", "rotate(0deg)");
-        } else {
-          // digərlərini bağla
-          $(".navbar .dropdown").not(parent).removeClass("show");
-          $(".navbar .dropdown .dropdown-menu").not(menu).slideUp(200);
-          $(".navbar .dropdown i.fa-chevron-down").not(icon).css("transform", "rotate(0deg)");
-
-          parent.addClass("show");
-          menu.slideDown(200);
-          icon.css("transform", "rotate(180deg)");
-        }
-      });
-
-      // xarici kliklə bağlama
-      $(document).off("click.mobileDropdown").on("click.mobileDropdown", function (e) {
-        if (!$(e.target).closest(".navbar .dropdown").length) {
-          $(".navbar .dropdown").removeClass("show");
-          $(".navbar .dropdown .dropdown-menu").slideUp(200);
-          $(".navbar .dropdown i.fa-chevron-down").css("transform", "rotate(0deg)");
-        }
-      });
-
-    } else {
-      $(".dropdown-toggle").attr("data-bs-toggle", "dropdown");
-      $(".navbar .dropdown").removeClass("show");
-      $(".navbar .dropdown .dropdown-menu").hide();
-      $(".navbar .dropdown i.fa-chevron-down").css("transform", "rotate(0deg)");
-      $(document).off("click.mobileDropdown");
-    }
-  }
-
-  mobileDropdown();
-  $(window).resize(mobileDropdown);
-
-});
-
-
-// nav media
-// JavaScript
-// document.addEventListener("DOMContentLoaded", function () {
-//     // dropdown-toggle elementlərinin hamısı
-//     var dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-//     // Hər bir dropdown-toggle-ı 
-//     dropdownToggles.forEach(function (toggle) {
-//         // Click eventini 
-//         toggle.addEventListener('click', function () {
-//             // toggleParent dəyişənində dropdown parent
-//             var toggleParent = this.parentElement;
-//             // Dropdown-menu-nu tap
-//             var dropdownMenu = toggleParent.querySelector('.dropdown-menu');
-
-//             // Dropdown-menu-nun display atribut
-//             var displayStyle = window.getComputedStyle(dropdownMenu).getPropertyValue('display');
-
-//             // Dropdown-menu-nun display atribut toggle 
-//             if (displayStyle === 'block') {
-//                 dropdownMenu.style.display = 'none';
-//             } else {
-//                 dropdownMenu.style.display = 'block';
-//             }
-//         });
-//     });
-// });
-
-// menyu
-// document.addEventListener("DOMContentLoaded", function() {
-//     const dropdowns = document.querySelectorAll(".navbar .dropdown");
-
-//     function handleDropdowns() {
-//         const width = window.innerWidth;
-
-//         dropdowns.forEach(drop => {
-//             const toggle = drop.querySelector(".dropdown-toggle");
-//             const menu = drop.querySelector(".dropdown-menu");
-
-//             // Hover böyük ekran üçün
-//             if(width >= 992) {
-//                 toggle.removeAttribute("data-bs-toggle"); // klik deaktiv
-//                 drop.addEventListener("mouseenter", () => menu.classList.add("show"));
-//                 drop.addEventListener("mouseleave", () => menu.classList.remove("show"));
-//             } else {
-//                 // Kiçik ekran klik üçün
-//                 toggle.setAttribute("data-bs-toggle", "dropdown");
-//                 menu.classList.remove("show"); // hover varsa sil
-//             }
-//         });
-//     }
-
-//     handleDropdowns();
-//     window.addEventListener("resize", handleDropdowns);
-
-//     // Sticky/fixed menyu scroll ilə
-//     const menuSection = document.querySelector(".menu-section");
-//     const headerHeight = document.querySelector(".header-img").offsetHeight;
-
-//     window.addEventListener("scroll", () => {
-//         if(window.scrollY > headerHeight) {
-//             menuSection.style.position = "fixed";
-//             menuSection.style.top = "0";
-//         } else {
-//             menuSection.style.position = "sticky";
-//             menuSection.style.top = "0";
-//         }
-//     });
-// });
-
-
-// son menyu
-
-// as
 
 $(document).ready(function () {
 
@@ -319,7 +93,6 @@ $(document).ready(function () {
 });
 
 // news
-
 $(document).ready(function () {
     $("#news-slider").owlCarousel({
 
@@ -371,3 +144,97 @@ $(document).ready(function () {
         }
     });
 });
+// single news
+jQuery("#carousel").owlCarousel({
+    autoplay: true,
+    rewind: false,
+    margin: 0,
+    loop: true,
+
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+
+    responsiveClass: true,
+    autoHeight: true,
+    autoplayTimeout: 10000,
+    smartSpeed: 2500,
+    nav: true,
+    navText: [
+        '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path  fill="#306279" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>',
+        '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path  fill="#306279" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>'],
+    responsive: {
+        0: {
+            items: 1
+        },
+
+        600: {
+            items: 1
+        },
+
+        1024: {
+            items: 1
+        },
+
+        1366: {
+            items: 1
+        }
+    }
+});
+
+
+// back to top
+(function ($) {
+    "use strict";
+
+    $(".switch").on("click", function () {
+        if ($("body").hasClass("light")) {
+            $("body").removeClass("light");
+            $(".switch").removeClass("switched");
+        } else {
+            $("body").addClass("light");
+            $(".switch").addClass("switched");
+        }
+    });
+
+    $(document).ready(function () {
+
+        var progressPath = document.querySelector(".progress-wrap path");
+
+        if (progressPath) {
+            var pathLength = progressPath.getTotalLength();
+            progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+            progressPath.style.strokeDasharray = pathLength + " " + pathLength;
+            progressPath.style.strokeDashoffset = pathLength;
+            progressPath.getBoundingClientRect();
+            progressPath.style.transition =
+                progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
+            var updateProgress = function () {
+                var scroll = $(window).scrollTop();
+                var height = $(document).height() - $(window).height();
+                var progress = pathLength - (scroll * pathLength) / height;
+                progressPath.style.strokeDashoffset = progress;
+            };
+            updateProgress();
+            $(window).scroll(updateProgress);
+        }
+
+        var offset = 50;
+        var duration = 550;
+
+        $(window).on("scroll", function () {
+            if ($(this).scrollTop() > offset) {
+                $(".progress-wrap").addClass("active-progress");
+            } else {
+                $(".progress-wrap").removeClass("active-progress");
+            }
+        });
+
+        $(".progress-wrap").on("click", function (event) {
+            event.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, duration);
+            return false;
+        });
+
+    });
+
+})(jQuery);

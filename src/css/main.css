@@ -24,42 +24,54 @@ p {
 a {
   text-decoration: none;
 }
-/* 
-@-webkit-keyframes border-transform {
-  0%,
-  100% {
-    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-  }
-  14% {
-    border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
-  }
-  28% {
-    border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
-  }
-  42% {
-    border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
-  }
-  56% {
-    border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
-  }
-  70% {
-    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
-  }
-  84% {
-    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
-  }
+
+.accw-menu-btn {
+  bottom: 74px !important;
+  top: auto !important;
+  left: auto !important;
+  width: 40px !important;
+  height: 40px !important;
+  background-color: rgba(67, 120, 255, 1) !important;
 }
+
+.accw-menu-btn svg {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  min-width: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  background: 0 0 !important;
+}
+
+
+.fixed-mail-icon {
+  position: fixed;
+  bottom: 125px;
+  right: 15px;
+  z-index: 999;
+  display: inline-block;
+  background-color: var(--navBg);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+}
+
 
 .progress-wrap {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
-  height: 46px;
-  width: 46px;
+  right: 16px;
+  bottom:22%;
+  height: 45px;
+  width: 45px;
   cursor: pointer;
   display: block;
   border-radius: 50px;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
   z-index: 10000;
   opacity: 0;
   visibility: hidden;
@@ -76,16 +88,16 @@ a {
 
 .progress-wrap::after {
   position: absolute;
-  font-family: "unicons";
-  content: "\e84b";
+  font-family: 'unicons';
+  content: '\e84b';
   text-align: center;
   line-height: 46px;
   font-size: 24px;
-  color: #c11e1e;
+  color: var(--menuColor);
   left: 0;
   top: 0;
-  height: 46px;
-  width: 46px;
+  height: 45px;
+  width: 45px;
   cursor: pointer;
   display: block;
   z-index: 1;
@@ -95,14 +107,13 @@ a {
 
 .progress-wrap::before {
   position: absolute;
-  font-family: "unicons";
-  content: "\e84b";
+  font-family: 'unicons';
+  content: '';
   text-align: center;
   line-height: 46px;
   font-size: 24px;
   opacity: 0;
-  background: var(--linkColor);
-  -webkit-background-clip: text;
+  background-image: linear-gradient(298deg, var(--red), var(--yellow));
   -webkit-text-fill-color: transparent;
   left: 0;
   top: 0;
@@ -124,12 +135,12 @@ a {
 }
 
 .progress-wrap svg.progress-circle path {
-  stroke: rgba(163, 167, 168, 0.9);
+  stroke: var(--menuColor);
   stroke-width: 4;
   box-sizing: border-box;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
-} */
+}
 
 .news-carousel .carousel-indicators [data-bs-target] {
   width: 17px;
@@ -279,7 +290,7 @@ a {
   left: 0;
   width: 100%;
 }
-/* 
+/*
 
 .progress-wrap.active-progress {
   opacity: 1;
