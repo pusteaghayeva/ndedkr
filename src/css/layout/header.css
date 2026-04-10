@@ -700,3 +700,20 @@ p {
 
 }
 
+
+
+/* dropdown click bg */
+/* Dropdown menyular üçün */
+.navbar .dropdown-menu {
+  display: none;
+  background-color: rgba(25, 106, 180, 1); /* sənin mövcud background */
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* smooth transition */
+  opacity: 0;
+}
+
+/* Hover və ya JS açılanda */
+.navbar .dropdown.show > .dropdown-menu,
+.navbar .dropdown:hover > .dropdown-menu {
+  display: block;
+  opacity: 1;
+}
