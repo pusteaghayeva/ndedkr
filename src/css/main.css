@@ -282,10 +282,10 @@ a {
   position: fixed;
   top: 160px;
   right: 0;
-  width: 30px;
-  height: 60px;
+  width: 60px;
+  height: 119px;
   background: var(--requestBg);
-  color: white;
+  color: var(--arrowColor);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -293,6 +293,7 @@ a {
   border-radius: 10px 0 0 10px;
   z-index: 9998;
   transition: 0.3s;
+  font-size: 30px;
 }
 
 .survey-toggle.active {
