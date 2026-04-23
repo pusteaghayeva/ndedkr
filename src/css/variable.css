@@ -13,7 +13,11 @@
   --whiteColor: rgba(255, 255, 255, 1);
   --managementBg: rgba(229, 236, 243, 1);
   --fontBasic: "Basic", sans-serif;
-
+  --bgColor: rgba(246, 248, 250, 1);
+  --bgBorderColor: rgba(235, 235, 235, 1);
+  --transitionBg: rgba(133, 173, 200, 1);
+  --transitionColor: rgba(0, 40, 70, 1);
+  --requestBg: rgba(223, 231, 239, 1);
   /* --dateColor: #585858;
     --whiteColor: rgba(255, 255, 255, 1);
     --announcementColor: rgba(2, 52, 96, 1);

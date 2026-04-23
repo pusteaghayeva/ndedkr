@@ -98,19 +98,13 @@ $(document).ready(function () {
 
         loop: true,
         margin: 20,
-        nav: true,
+        nav: false,
         dots: false,
 
         autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         smartSpeed: 600,
-
-        // navText: [
-        //     "<img src='./src/img/arrowleft.svg'>",
-        //     "<img src='./src/img/arrowright.svg'>"
-        // ],
-
         responsive: {
             0: { items: 1 },
             480: { items: 2 },
@@ -181,6 +175,37 @@ jQuery("#carousel").owlCarousel({
     }
 });
 
+$(document).ready(function () {
+
+    $("#transitions-slider").owlCarousel({
+
+        loop: true,
+        margin: 20,
+        nav: false,
+        dots: false,
+
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        smartSpeed: 600,
+
+        navText: [
+            "<img src='./src/img/arrowleft.svg'>",
+            "<img src='./src/img/arrowright.svg'>"
+        ],
+
+        responsive: {
+            0: { items: 1 },
+            480: { items: 2 },
+            768: { items: 2 },
+            992: { items: 3 },
+            1200: { items: 3 },
+            1400: { items: 3 }
+        }
+
+    });
+
+});
 
 // back to top
 (function ($) {
@@ -238,3 +263,71 @@ jQuery("#carousel").owlCarousel({
     });
 
 })(jQuery);
+
+// sorgu
+// document.addEventListener("DOMContentLoaded", function () {
+//   const panel = document.getElementById("surveyPanel");
+//   const toggle = document.getElementById("surveyToggle");
+//   const closeBtn = document.getElementById("surveyClose");
+
+//   // İlk açılış (delay ilə daha smooth)
+//   setTimeout(() => {
+//     panel.classList.add("active");
+//     toggle.classList.add("active");
+//   }, 800);
+
+//   // Toggle klik
+//   toggle.addEventListener("click", () => {
+//     panel.classList.toggle("active");
+//     toggle.classList.toggle("active");
+//   });
+
+//   // Close klik
+//   closeBtn.addEventListener("click", () => {
+//     panel.classList.remove("active");
+//     toggle.classList.remove("active");
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("surveyModal");
+    const overlay = document.getElementById("surveyOverlay");
+    const modalClose = document.getElementById("modalClose");
+
+    const panel = document.getElementById("surveyPanel");
+    const toggle = document.getElementById("surveyToggle");
+    const panelClose = document.getElementById("surveyClose");
+
+    // ✅ İlk giriş → modal açılır
+    setTimeout(() => {
+        modal.classList.add("active");
+        overlay.classList.add("active");
+    }, 500);
+
+    // ❌ Modal bağlanır → sağ panel aktiv olur
+    modalClose.addEventListener("click", () => {
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+
+        // sağ panelə keçid
+        panel.classList.add("active");
+        toggle.classList.add("active");
+    });
+
+    // Overlay klik də bağlasın
+    overlay.addEventListener("click", () => {
+        modalClose.click();
+    });
+
+    // 👉 Toggle ( < )
+    toggle.addEventListener("click", () => {
+        panel.classList.toggle("active");
+        toggle.classList.toggle("active");
+    });
+
+    // ❌ Panel close
+    panelClose.addEventListener("click", () => {
+        panel.classList.remove("active");
+        toggle.classList.remove("active");
+    });
+});
