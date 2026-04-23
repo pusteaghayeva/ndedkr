@@ -261,20 +261,21 @@ a {
   padding: 6px 10px;
   cursor: pointer;
   border-radius: 10px;
-  width: 150px;
+  width: 120px;
   font-size: 16px;
   font-weight: 700;
+  background: var(--whiteColor);
+  color: var(--menuColor);
 }
 
-.vote-btn {
+/* .vote-btn {
   background: #6c8aa3;
   color: #fff;
 }
 
 .result-btn {
-  background: var(--whiteColor);
-  color: var(--menuColor);
-}
+  
+} */
 
 /* TOGGLE BUTTON */
 .survey-toggle {
@@ -283,7 +284,7 @@ a {
   right: 0;
   width: 30px;
   height: 60px;
-  background: #6c8aa3;
+  background: var(--requestBg);
   color: white;
   display: flex;
   align-items: center;
@@ -330,7 +331,7 @@ a {
   opacity: 0;
   transition: 0.3s;
   width: 50%;
-  height: 50%;
+  height: 40%;
 }
 
 .survey-modal.active {
@@ -343,6 +344,7 @@ a {
   color: var(--menuColor);
   background-color: var(--transitionBg);
   padding: 10px;
+  border-radius: 3px;
 }
 
 /* CLOSE BUTTON */
@@ -354,6 +356,7 @@ a {
   background: none;
   font-size: 30px;
   cursor: pointer;
+  color: var(--menuColor);
 }
 /* sorgu end */
 /* news */
