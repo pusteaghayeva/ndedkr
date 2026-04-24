@@ -72,7 +72,22 @@ body {
 p {
   margin: 0;
 }
+header {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #d7e0e5 11.52%,
+    #dde4e9 23.5%,
+    #e9eef1 50.06%,
+    #ffffff 97.12%
+  );
+}
 
+.header-first-bg{
+  width: 100%;
+  height: 12px;
+  background-color: var(--navBg);
+}
 .header-img {
   position: relative;
   display: flex;
@@ -91,7 +106,7 @@ a:focus-visible {
 
 .header-name {
   font-weight: 400;
-  font-size: 21px;
+  font-size: 16px;
   color: var(--menuColor);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin-left: 20px;
@@ -100,7 +115,7 @@ a:focus-visible {
 
 .menu-section .navbar {
   background-color: var(--navBg);
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
 .menu-section .nav-inner {
@@ -113,7 +128,7 @@ a:focus-visible {
 .menu-section .nav-link {
   font-size: 16px;
   font-family: var(--fontNivea);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--menuColor);
 }
 

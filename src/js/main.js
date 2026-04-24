@@ -263,40 +263,14 @@ $(document).ready(function () {
     });
 
 })(jQuery);
-
 // sorgu
-// document.addEventListener("DOMContentLoaded", function () {
-//   const panel = document.getElementById("surveyPanel");
-//   const toggle = document.getElementById("surveyToggle");
-//   const closeBtn = document.getElementById("surveyClose");
-
-//   // İlk açılış (delay ilə daha smooth)
-//   setTimeout(() => {
-//     panel.classList.add("active");
-//     toggle.classList.add("active");
-//   }, 800);
-
-//   // Toggle klik
-//   toggle.addEventListener("click", () => {
-//     panel.classList.toggle("active");
-//     toggle.classList.toggle("active");
-//   });
-
-//   // Close klik
-//   closeBtn.addEventListener("click", () => {
-//     panel.classList.remove("active");
-//     toggle.classList.remove("active");
-//   });
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("surveyModal");
     const overlay = document.getElementById("surveyOverlay");
     const modalClose = document.getElementById("modalClose");
 
-    const panel = document.getElementById("surveyPanel");
     const toggle = document.getElementById("surveyToggle");
-    const panelClose = document.getElementById("surveyClose");
 
     // ✅ İlk giriş → modal açılır
     setTimeout(() => {
@@ -304,14 +278,13 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.classList.add("active");
     }, 500);
 
-    // ❌ Modal bağlanır → sağ panel aktiv olur
+    // ❌ Modal bağlanır → yalnız toggle qalır
     modalClose.addEventListener("click", () => {
         modal.classList.remove("active");
         overlay.classList.remove("active");
 
-        // sağ panelə keçid
-        panel.classList.add("active");
-        toggle.classList.add("active");
+        // panel YOX, sadəcə toggle görünür
+        toggle.classList.add("visible");
     });
 
     // Overlay klik də bağlasın
@@ -319,15 +292,9 @@ document.addEventListener("DOMContentLoaded", function () {
         modalClose.click();
     });
 
-    // 👉 Toggle ( < )
+    // 👉 Toggle klik → modal yenidən açılsın
     toggle.addEventListener("click", () => {
-        panel.classList.toggle("active");
-        toggle.classList.toggle("active");
-    });
-
-    // ❌ Panel close
-    panelClose.addEventListener("click", () => {
-        panel.classList.remove("active");
-        toggle.classList.remove("active");
+        modal.classList.add("active");
+        overlay.classList.add("active");
     });
 });

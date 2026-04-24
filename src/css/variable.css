@@ -1,6 +1,8 @@
 :root {
-  --navBg: rgba(155, 198, 226, 1);
-  --menuColor: rgba(35, 69, 94, 1);
+  /* --navBg: rgba(155, 198, 226, 1); */
+  --navBg: rgba(110, 158, 190, 1);
+  /* --menuColor: rgba(35, 69, 94, 1); */
+  --menuColor: rgba(0, 40, 70, 1);
   --fontNivea: "Nivea", sans-serif;
   --carouselBtn: rgba(139, 140, 137, 1);
   --arrowColor: rgb(37, 36, 36);
@@ -18,6 +20,8 @@
   --transitionBg: rgba(133, 173, 200, 1);
   --transitionColor: rgba(0, 40, 70, 1);
   --requestBg: rgba(223, 231, 239, 1);
+  --lawsColor: #299df0;
+  --lawBg: #eef7ff;
   /* --dateColor: #585858;
     --whiteColor: rgba(255, 255, 255, 1);
     --announcementColor: rgba(2, 52, 96, 1);

@@ -1,5 +1,5 @@
-.laws{
-    margin: 50px 0;
+.laws {
+  margin: 50px 0 0;
 }
 .laws-blog {
   background-color: var(--managementBg);
@@ -17,6 +17,7 @@
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .laws-blog .file-icon {
@@ -28,11 +29,19 @@
     filter 0.4s ease;
 }
 
-.laws-blog:hover {
-  background-color: var(--newsBorder); 
-  transform: translateY(-5px);
+.laws-blog::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--newsBorder);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
 }
 
+.laws-blog:hover::before {
+  opacity: 1;
+}
 .laws-blog:hover .file-icon {
   transform: scale(1.06) rotate(10deg);
   filter: brightness(0) invert(1);
