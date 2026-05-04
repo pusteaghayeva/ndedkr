@@ -83,7 +83,7 @@ header {
   );
 }
 
-.header-first-bg{
+.header-first-bg {
   width: 100%;
   height: 12px;
   background-color: var(--navBg);
@@ -106,16 +106,17 @@ a:focus-visible {
 
 .header-name {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 24px;
   color: var(--menuColor);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  margin-left: 20px;
+  margin-left: 12px;
   font-family: "Nivea", sans-serif;
 }
 
 .menu-section .navbar {
   background-color: var(--navBg);
   /* border-radius: 20px; */
+  --bs-navbar-padding-x: none;
 }
 
 .menu-section .nav-inner {
@@ -126,14 +127,14 @@ a:focus-visible {
   align-items: center;
 }
 .menu-section .nav-link {
-  font-size: 16px;
+  font-size: 22px;
   font-family: var(--fontNivea);
   font-weight: 400;
-  color: var(--menuColor);
+  color: var(--transitionColor);
 }
 
 .menu-section .nav-link:hover {
-  color: var(--menuColor);
+  color: var(--transitionColor);
 }
 
 .menu-section {
@@ -193,8 +194,8 @@ a:focus-visible {
 }
 
 .menu-section .search-icon {
-  font-size: 18px;
-  color: var(--menuColor);
+  font-size: 22px;
+  color: var(--searchColor);
   cursor: pointer;
   padding: 10px;
 }

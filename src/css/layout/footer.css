@@ -1,11 +1,12 @@
 .footer {
   color: var(--menuColor);
-  background-color: var(--bgColor);
-  border: 1px solid var(--bgBorderColor);
-  width: 80%;
+  /* background-color: var(--bgColor); */
+  /* border: 1px solid var(--bgBorderColor); */
+  /* width: 80%; */
   margin: 0 auto;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   padding: 15px 35px;
+  border: 1px solid var(--bgBorderColor);
 }
 .footer-main-title {
   font-size: 22px;
@@ -29,7 +30,7 @@
 }
 .footer-contact-detail-address {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .footer-mail {
@@ -44,18 +45,19 @@
 }
 
 .footer-copyright {
-  margin-top: 17px;
+  /* margin-top: 17px; */
   background-color: var(--navBg);
   text-align: center;
   padding: 22px 0;
   color: var(--whiteColor);
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 700;
   transition: all 0.4s;
 }
 .copyright-link {
   position: relative;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 20px;
   color: var(--menuColor);
   text-decoration: none;
 }
