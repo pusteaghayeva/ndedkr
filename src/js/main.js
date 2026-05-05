@@ -386,7 +386,77 @@ $(document).ready(function () {
 //     });
 // });
 
-// survey result
+// // survey result
+// document.addEventListener("DOMContentLoaded", function () {
+//     const modal = document.getElementById("surveyModal");
+//     const overlay = document.getElementById("surveyOverlay");
+//     const modalClose = document.getElementById("modalClose");
+//     const toggle = document.getElementById("surveyToggle");
+
+//     function openModal() {
+//         modal.classList.remove("closing");
+//         modal.classList.add("active");
+//         overlay.classList.add("active");
+//         toggle.classList.remove("visible");
+//     }
+
+//     function closeModal() {
+//         modal.classList.add("closing");
+
+//         toggle.classList.add("pop");
+
+//         setTimeout(() => {
+//             toggle.classList.remove("pop");
+//         }, 300);
+
+//         setTimeout(() => {
+//             modal.classList.remove("active", "closing");
+//             overlay.classList.remove("active");
+//             toggle.classList.add("visible");
+//         }, 750);
+//     }
+
+//     setTimeout(openModal, 500);
+
+//     modalClose.addEventListener("click", closeModal);
+//     overlay.addEventListener("click", closeModal);
+//     toggle.addEventListener("click", openModal);
+
+//     // =========================
+//     // ✅ SURVEY RESULT LOGIC
+//     // =========================
+
+//     const voteBtn = modal.querySelector(".vote-btn");
+//     const resultBtn = modal.querySelector(".result-btn");
+//     const surveyContent = modal.querySelector(".survey-content");
+//     const surveyResults = document.getElementById("surveyResults");
+//     const radios = modal.querySelectorAll('input[name="q1"]');
+//     const backBtn = document.getElementById("backToVote");
+
+//     voteBtn.disabled = true;
+
+//     radios.forEach(radio => {
+//         radio.addEventListener("change", () => {
+//             voteBtn.disabled = false;
+//         });
+//     });
+
+//     voteBtn.addEventListener("click", () => {
+//         surveyContent.style.display = "none";
+//         surveyResults.style.display = "flex";
+//     });
+
+//     resultBtn.addEventListener("click", () => {
+//         surveyContent.style.display = "none";
+//         surveyResults.style.display = "flex";
+//     });
+
+//     backBtn.addEventListener("click", () => {
+//         surveyResults.style.display = "none";
+//         surveyContent.style.display = "flex";
+//     });
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("surveyModal");
     const overlay = document.getElementById("surveyOverlay");
@@ -423,34 +493,39 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle.addEventListener("click", openModal);
 
     // =========================
-    // ✅ SURVEY RESULT LOGIC
+    // ✅ SURVEY RESULT LOGIC (FIXED)
     // =========================
 
     const voteBtn = modal.querySelector(".vote-btn");
     const resultBtn = modal.querySelector(".result-btn");
     const surveyContent = modal.querySelector(".survey-content");
     const surveyResults = document.getElementById("surveyResults");
-    const radios = modal.querySelectorAll('input[name="q1"]');
+    const radios = modal.querySelectorAll('input[name="q1_modal"]');
     const backBtn = document.getElementById("backToVote");
 
+    // əvvəlcə deaktiv
     voteBtn.disabled = true;
 
+    // radio seçiləndə aktivləşsin
     radios.forEach(radio => {
         radio.addEventListener("change", () => {
             voteBtn.disabled = false;
         });
     });
 
+    // Səs ver
     voteBtn.addEventListener("click", () => {
         surveyContent.style.display = "none";
         surveyResults.style.display = "flex";
     });
 
+    // Nəticələr
     resultBtn.addEventListener("click", () => {
         surveyContent.style.display = "none";
         surveyResults.style.display = "flex";
     });
 
+    // Geri
     backBtn.addEventListener("click", () => {
         surveyResults.style.display = "none";
         surveyContent.style.display = "flex";
