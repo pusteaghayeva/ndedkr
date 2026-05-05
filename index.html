@@ -51,59 +51,62 @@
         ></path>
       </svg>
     </div>
-
     <div class="survey-toggle" id="surveyToggle">&#10094;</div>
-
     <div class="survey-panel" id="surveyPanel">
       <div class="survey-header">
-        <span>Sorğu</span>
-        <button id="surveyClose">&times;</button>
+        <span>Sorğu</span> <button id="surveyClose">&times;</button>
       </div>
-
       <div class="survey-content">
         <p>
           Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
           üçün əsas sənəd hesab edilirmi?
         </p>
-
         <label><input type="radio" name="q1" /> Bəli</label>
         <label><input type="radio" name="q1" /> Xeyr</label>
-
         <div class="survey-actions">
           <button class="vote-btn">Səs ver</button>
           <button class="result-btn">Nəticələr</button>
         </div>
       </div>
     </div>
-
     <div class="survey-overlay" id="surveyOverlay"></div>
-
     <div class="survey-modal" id="surveyModal">
-      <button class="arrow-close" id="arrowClose">&#10095;</button>
-      <!-- <button class="modal-close" id="modalClose">&times;</button> -->
-
+      <button class="modal-close" id="modalClose">&times;</button>
       <div class="survey-content">
         <p class="survey-text">
           Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
           üçün əsas sənəd hesab edilmir. Bunu bilirsinizmi?
         </p>
-
         <label class="custom-radio">
-          <input type="radio" name="q1" />
-          <span class="radio-mark"></span>
-          Bəli
+          <input type="radio" name="q1" /> <span class="radio-mark"></span> Bəli
         </label>
-
         <label class="custom-radio">
-          <input type="radio" name="q1" />
-          <span class="radio-mark"></span>
-          Xeyr
+          <input type="radio" name="q1" /> <span class="radio-mark"></span> Xeyr
         </label>
-
         <div class="survey-actions">
           <button class="vote-btn">Səs ver</button>
           <button class="result-btn">Nəticələr</button>
         </div>
+      </div>
+
+      <div class="survey-results" id="surveyResults" style="display: none">
+        <div class="result-item">
+          <span>Bəli</span>
+          <div class="bar">
+            <div class="bar-fill yes" style="width: 68%"></div>
+          </div>
+          <span>68%</span>
+        </div>
+
+        <div class="result-item">
+          <span>Xeyr</span>
+          <div class="bar">
+            <div class="bar-fill no" style="width: 36%"></div>
+          </div>
+          <span>36%</span>
+        </div>
+
+        <button class="result-btn" id="backToVote">Geri</button>
       </div>
     </div>
     <header class="position-relative">

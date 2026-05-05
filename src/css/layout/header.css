@@ -252,12 +252,12 @@ a:focus-visible {
 .navbar-nav .nav-link.show {
   color: var(--menuColor);
 }
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
   .menu-section .nav-item {
     margin: 0 24px;
   }
   .menu-section .nav-link {
-    font-size: 14px;
+    font-size: 16px;
   }
   .menu-section .dropdown-item {
     font-size: 12px;

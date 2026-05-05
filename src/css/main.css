@@ -189,24 +189,24 @@ a {
 
 /* CONTENT */
 .survey-content {
-  padding: 40px;
-  font-size: 14px;
+  /* padding: 40px; */
+  /* font-size: 14px; */
   display: flex;
   flex-direction: column;
 }
 
 .survey-content label {
-  display: block;
-  margin: 20px 0;
+  display: flex;
+  margin: 11px 0;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--menuColor);
 }
 
 /* BUTTONS */
 .survey-actions {
-  margin-top: 10px;
+  margin-bottom: 17px;
   display: flex;
   justify-content: space-between;
 }
@@ -265,7 +265,7 @@ a {
   padding: 6px 10px;
   cursor: pointer;
   border-radius: 10px;
-  width: 120px;
+  width: 98px;
   font-size: 16px;
   font-weight: 700;
   background: var(--whiteColor);
@@ -276,7 +276,7 @@ a {
 .survey-toggle {
   position: fixed;
   bottom: 235px;
-  right: 0;
+  /* right: 0; */
   width: 60px;
   height: 119px;
   background: var(--requestBg);
@@ -289,18 +289,24 @@ a {
   z-index: 9998;
   transition: 0.3s;
   font-size: 30px;
+  /* opacity: 0; */
+  pointer-events: auto;
+  /* transition: 0.3s; */
+  right: -60px; /* ekranın çölündə */
   opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
+  transition: 0.4s ease;
 }
 
 .survey-toggle.active {
   right: 300px;
 }
+.survey-toggle.move {
+  right: 300px; /* modalın olduğu nöqtəyə gəlir */
+}
 
 .survey-toggle.visible {
+  right: 0;
   opacity: 1;
-  pointer-events: all;
 }
 /* OVERLAY */
 .survey-overlay {
@@ -313,7 +319,10 @@ a {
   z-index: 9998;
   opacity: 0;
   pointer-events: none;
-  transition: 0.3s;
+  /* transition: 0.3s; */
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
 }
 
 .survey-overlay.active {
@@ -323,29 +332,69 @@ a {
 
 /* CENTER MODAL */
 .survey-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  width: 350px;
+  width: 367px;
+  height: auto;
   background: var(--requestBg);
   border-radius: 12px;
-  padding: 20px;
+  padding: 6px 15px;
   z-index: 9999;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(120%, -50%);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: 0.3s ease;
-  transition: 0.3s;
-  width: 50%;
-  height: 40%;
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s ease;
+  will-change: transform;
+  border: 1px solid rgba(0, 0, 0, 1);
 }
-
 .survey-modal.active {
+  transform: translate(0, -50%);
   opacity: 1;
   visibility: visible;
   pointer-events: all;
-  transform: translate(-50%, -50%) scale(1);
+}
+/* .survey-toggle {
+  transition: right 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease,
+              transform 0.4s ease;
+} */
+
+.survey-toggle {
+  position: fixed;
+  bottom: 235px;
+  right: 0;
+
+  width: 60px;
+  height: 119px;
+
+  background: var(--requestBg);
+  color: var(--arrowColor);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+
+  z-index: 10000;
+
+  transition:
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.5s ease;
+}
+.survey-toggle.handoff {
+  width: 300px; /* modal width-ə yaxın */
+  border-radius: 10px 0 0 10px;
+  transform: translateY(0);
+}
+.survey-toggle.pop {
+  transform: scale(1.2);
 }
 .survey-text {
   font-size: 16px;
@@ -359,14 +408,56 @@ a {
 /* CLOSE BUTTON */
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 60px;
+  top: 20px;
+  right: 28px;
   border: none;
   background: none;
   font-size: 30px;
   cursor: pointer;
   color: var(--menuColor);
 }
+
+.survey-modal.closing {
+  transform: translate(140%, -50%);
+  opacity: 0;
+}
+/* survey result bar */
+.survey-results {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--menuColor);
+}
+
+.bar {
+  flex: 1;
+  height: 6px;
+  background: #ddd;
+  margin: 0 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+}
+
+.bar-fill.yes {
+  background: green;
+}
+
+.bar-fill.no {
+  background: red;
+}
+/* sss son */
+
 /* sorgu end */
 /* news */
 .news-carousel {

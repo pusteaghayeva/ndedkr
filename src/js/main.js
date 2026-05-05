@@ -92,37 +92,37 @@ $(document).ready(function () {
 
 });
 document.addEventListener('DOMContentLoaded', () => {
-  const social   = document.querySelector('.e-services-social');
-  const services = document.querySelector('.e-services');
-  if (!social || !services) return;
+    const social = document.querySelector('.e-services-social');
+    const services = document.querySelector('.e-services');
+    if (!social || !services) return;
 
 
-  const ENTER_OFFSET = 120;
+    const ENTER_OFFSET = 120;
 
-  function update() {
-    const esTop = services.getBoundingClientRect().top;
+    function update() {
+        const esTop = services.getBoundingClientRect().top;
 
-    if (esTop <= ENTER_OFFSET) {
-      social.classList.add('is-visible');
-      social.classList.remove('no-hit');
-    } else {
-      social.classList.remove('is-visible');
-      social.classList.add('no-hit');
+        if (esTop <= ENTER_OFFSET) {
+            social.classList.add('is-visible');
+            social.classList.remove('no-hit');
+        } else {
+            social.classList.remove('is-visible');
+            social.classList.add('no-hit');
+        }
     }
-  }
 
-  let ticking = false;
-  const onScrollOrResize = () => {
-    if (!ticking) {
-      requestAnimationFrame(() => { update(); ticking = false; });
-      ticking = true;
-    }
-  };
+    let ticking = false;
+    const onScrollOrResize = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => { update(); ticking = false; });
+            ticking = true;
+        }
+    };
 
-  window.addEventListener('scroll', onScrollOrResize, { passive: true });
-  window.addEventListener('resize', onScrollOrResize);
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
 
-  update();
+    update();
 });
 
 
@@ -301,37 +301,158 @@ $(document).ready(function () {
 
 })(jQuery);
 // sorgu
+// document.addEventListener("DOMContentLoaded", function () {
+//     const modal = document.getElementById("surveyModal");
+//     const overlay = document.getElementById("surveyOverlay");
+//     const modalClose = document.getElementById("modalClose");
+//     const toggle = document.getElementById("surveyToggle");
 
+//     // 🔹 ilk açılış
+//     setTimeout(() => {
+//         openModal();
+//     }, 500);
+
+//     function openModal() {
+//         modal.classList.remove("closing");
+//         modal.style.transform = "";
+
+//         modal.classList.add("active");
+//         overlay.classList.add("active");
+
+//         toggle.classList.remove("visible");
+//     }
+
+//     function closeModal() {
+//         modal.classList.add("closing");
+
+//         setTimeout(() => {
+//             modal.classList.remove("active", "closing");
+//             overlay.classList.remove("active");
+
+//             toggle.classList.add("visible");
+//         }, 400);
+//     }
+
+//     // ❌ close
+//     modalClose.addEventListener("click", closeModal);
+//     overlay.addEventListener("click", closeModal);
+
+//     // 🔁 toggle → AÇ
+//     toggle.addEventListener("click", () => {
+//         openModal();
+//     });
+// });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const modal = document.getElementById("surveyModal");
+//     const overlay = document.getElementById("surveyOverlay");
+//     const modalClose = document.getElementById("modalClose");
+//     const toggle = document.getElementById("surveyToggle");
+
+//     function openModal() {
+//         modal.classList.remove("closing");
+//         modal.classList.add("active");
+//         overlay.classList.add("active");
+
+//         toggle.classList.remove("visible");
+//     }
+
+//   function closeModal() {
+//     modal.classList.add("closing");
+
+//     // 🔥 toggle anim effect (modal gedərkən “çıxırmış kimi” hiss)
+//     toggle.classList.add("pop");
+
+//     setTimeout(() => {
+//         toggle.classList.remove("pop");
+//     }, 300);
+
+//     setTimeout(() => {
+//         modal.classList.remove("active", "closing");
+//         overlay.classList.remove("active");
+
+//         toggle.classList.add("visible");
+//     }, 750); // modal animasiya ilə eyni olmalıdır
+// }
+
+//     // initial open
+//     setTimeout(openModal, 500);
+
+//     modalClose.addEventListener("click", closeModal);
+//     overlay.addEventListener("click", closeModal);
+
+//     toggle.addEventListener("click", function () {
+//         openModal();
+//     });
+// });
+
+// survey result
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("surveyModal");
     const overlay = document.getElementById("surveyOverlay");
     const modalClose = document.getElementById("modalClose");
-
     const toggle = document.getElementById("surveyToggle");
 
-    // ✅ İlk giriş → modal açılır
-    setTimeout(() => {
+    function openModal() {
+        modal.classList.remove("closing");
         modal.classList.add("active");
         overlay.classList.add("active");
-    }, 500);
+        toggle.classList.remove("visible");
+    }
 
-    // ❌ Modal bağlanır → yalnız toggle qalır
-    modalClose.addEventListener("click", () => {
-        modal.classList.remove("active");
-        overlay.classList.remove("active");
+    function closeModal() {
+        modal.classList.add("closing");
 
-        // panel YOX, sadəcə toggle görünür
-        toggle.classList.add("visible");
+        toggle.classList.add("pop");
+
+        setTimeout(() => {
+            toggle.classList.remove("pop");
+        }, 300);
+
+        setTimeout(() => {
+            modal.classList.remove("active", "closing");
+            overlay.classList.remove("active");
+            toggle.classList.add("visible");
+        }, 750);
+    }
+
+    setTimeout(openModal, 500);
+
+    modalClose.addEventListener("click", closeModal);
+    overlay.addEventListener("click", closeModal);
+    toggle.addEventListener("click", openModal);
+
+    // =========================
+    // ✅ SURVEY RESULT LOGIC
+    // =========================
+
+    const voteBtn = modal.querySelector(".vote-btn");
+    const resultBtn = modal.querySelector(".result-btn");
+    const surveyContent = modal.querySelector(".survey-content");
+    const surveyResults = document.getElementById("surveyResults");
+    const radios = modal.querySelectorAll('input[name="q1"]');
+    const backBtn = document.getElementById("backToVote");
+
+    voteBtn.disabled = true;
+
+    radios.forEach(radio => {
+        radio.addEventListener("change", () => {
+            voteBtn.disabled = false;
+        });
     });
 
-    // Overlay klik də bağlasın
-    overlay.addEventListener("click", () => {
-        modalClose.click();
+    voteBtn.addEventListener("click", () => {
+        surveyContent.style.display = "none";
+        surveyResults.style.display = "flex";
     });
 
-    // 👉 Toggle klik → modal yenidən açılsın
-    toggle.addEventListener("click", () => {
-        modal.classList.add("active");
-        overlay.classList.add("active");
+    resultBtn.addEventListener("click", () => {
+        surveyContent.style.display = "none";
+        surveyResults.style.display = "flex";
+    });
+
+    backBtn.addEventListener("click", () => {
+        surveyResults.style.display = "none";
+        surveyContent.style.display = "flex";
     });
 });
