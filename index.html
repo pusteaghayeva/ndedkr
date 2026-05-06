@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <a href="./" class="fixed-mail-icon">
+    <a href="./apply.html" class="fixed-mail-icon">
       <img src="./src/img/mail.svg" alt="Mail Icon" />
     </a>
     <div class="progress-wrap active-progress">
@@ -51,26 +51,6 @@
         ></path>
       </svg>
     </div>
-    <div class="survey-toggle" id="surveyToggle">&#10094;</div>
-    <div class="survey-panel" id="surveyPanel">
-      <div class="survey-header">
-        <span>Sorğu</span> <button id="surveyClose">&times;</button>
-      </div>
-      <div class="survey-content">
-        <p>
-          Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
-          üçün əsas sənəd hesab edilirmi?
-        </p>
-        <!-- <label><input type="radio" name="q1" /> Bəli</label>
-        <label><input type="radio" name="q1" /> Xeyr</label> -->
-        <label><input type="radio" name="q1_panel" /> Bəli</label>
-        <label><input type="radio" name="q1_panel" /> Xeyr</label>
-        <div class="survey-actions">
-          <button class="vote-btn">Səs ver</button>
-          <button class="result-btn">Nəticələr</button>
-        </div>
-      </div>
-    </div>
     <div class="survey-overlay" id="surveyOverlay"></div>
     <div class="survey-modal" id="surveyModal">
       <button class="modal-close" id="modalClose">&times;</button>
@@ -79,17 +59,10 @@
           Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
           üçün əsas sənəd hesab edilmir. Bunu bilirsinizmi?
         </p>
-        <!-- <label class="custom-radio">
-          <input type="radio" name="q1" /> <span class="radio-mark"></span> Bəli
-        </label>
-        <label class="custom-radio">
-          <input type="radio" name="q1" /> <span class="radio-mark"></span> Xeyr
-        </label> -->
         <label class="custom-radio">
           <input type="radio" name="q1_modal" />
           <span class="radio-mark"></span> Bəli
         </label>
-
         <label class="custom-radio">
           <input type="radio" name="q1_modal" />
           <span class="radio-mark"></span> Xeyr
@@ -99,8 +72,11 @@
           <button class="result-btn">Nəticələr</button>
         </div>
       </div>
-
       <div class="survey-results" id="surveyResults" style="display: none">
+        <p class="survey-text">
+          Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
+          üçün əsas sənəd hesab edilmir. Bunu bilirsinizmi?
+        </p>
         <div class="result-item">
           <span>Bəli</span>
           <div class="bar">
@@ -108,7 +84,6 @@
           </div>
           <span>68%</span>
         </div>
-
         <div class="result-item">
           <span>Xeyr</span>
           <div class="bar">
@@ -116,10 +91,11 @@
           </div>
           <span>36%</span>
         </div>
-
         <button class="result-btn" id="backToVote">Geri</button>
       </div>
     </div>
+    <div class="survey-toggle" id="surveyToggle">&#10095;</div>
+
     <header class="position-relative">
       <div class="header-first-bg"></div>
       <div class="container">

@@ -25,6 +25,8 @@
   --lawBg: #eef7ff;
   --searchColor: #23455E;
   --transitionsBg: rgba(221, 229, 238, 1);
+  --barYes: rgba(121, 172, 59, 1);
+  --barNo: rgba(172, 59, 59, 1);
   /* --dateColor: #585858;
     --whiteColor: rgba(255, 255, 255, 1);
     --announcementColor: rgba(2, 52, 96, 1);

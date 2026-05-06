@@ -152,312 +152,183 @@ a {
 }
 /* sorgu */
 /* PANEL */
-.survey-panel {
-  position: fixed;
-  top: 120px;
-  right: -320px;
-  width: 300px;
-  background: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px 0 0 10px;
-  transition: 0.4s ease;
-  z-index: 9999;
-}
-
-.survey-panel.active {
-  right: 0;
-}
-
-/* HEADER */
-.survey-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #6c8aa3;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px 0 0 0;
-}
-
-.survey-header button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-}
-
-/* CONTENT */
-.survey-content {
-  /* padding: 40px; */
-  /* font-size: 14px; */
-  display: flex;
-  flex-direction: column;
-}
-
-.survey-content label {
-  display: flex;
-  margin: 11px 0;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--menuColor);
-}
-
-/* BUTTONS */
-.survey-actions {
-  margin-bottom: 17px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* INPUT gizlət */
-.custom-radio input {
-  display: none;
-}
-
-/* LABEL */
-.custom-radio {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin: 8px 0;
-  font-size: 14px;
-}
-
-/* CIRCLE */
-.radio-mark {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #6c8aa3;
-  border-radius: 50%;
-  margin-right: 8px;
-  position: relative;
-  transition: 0.3s;
-}
-
-/* INNER DOT */
-.radio-mark::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background: #6c8aa3;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 0.3s;
-}
-
-/* CHECKED vəziyyət */
-.custom-radio input:checked + .radio-mark {
-  border-color: #6c8aa3;
-}
-
-.custom-radio input:checked + .radio-mark::after {
-  transform: translate(-50%, -50%) scale(1);
-}
-.vote-btn,
-.result-btn {
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 98px;
-  font-size: 16px;
-  font-weight: 700;
-  background: var(--whiteColor);
-  color: var(--menuColor);
-}
-
-/* TOGGLE BUTTON */
-.survey-toggle {
-  position: fixed;
-  bottom: 235px;
-  /* right: 0; */
-  width: 60px;
-  height: 119px;
-  background: var(--requestBg);
-  color: var(--arrowColor);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 10px 0 0 10px;
-  z-index: 9998;
-  transition: 0.3s;
-  font-size: 30px;
-  /* opacity: 0; */
-  pointer-events: auto;
-  /* transition: 0.3s; */
-  right: -60px; /* ekranın çölündə */
-  opacity: 0;
-  transition: 0.4s ease;
-}
-
-.survey-toggle.active {
-  right: 300px;
-}
-.survey-toggle.move {
-  right: 300px; /* modalın olduğu nöqtəyə gəlir */
-}
-
-.survey-toggle.visible {
-  right: 0;
-  opacity: 1;
-}
-/* OVERLAY */
 .survey-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 9998;
   opacity: 0;
   pointer-events: none;
-  /* transition: 0.3s; */
+  transition: opacity 0.4s ease;
+}
+.survey-overlay.active {
+  /* opacity: 1; */
+  /* pointer-events: all; */
+}
+
+.survey-modal {
+  position: fixed;
+  top: 65%;
+  right: 0;
+  transform: translateY(-50%) translateX(100%);
+  width: 320px;
+  background: var(--requestBg);
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-right: none;
+  border-radius: 7px;
+  padding: 6px 10px 17px;
+  z-index: 10;
   transition:
     transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.4s ease;
-}
-
-.survey-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* CENTER MODAL */
-.survey-modal {
-  width: 367px;
-  height: auto;
-  background: var(--requestBg);
-  border-radius: 12px;
-  padding: 6px 15px;
-  z-index: 9999;
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translate(120%, -50%);
+    opacity 0.5s ease;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition:
-    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.7s ease;
-  will-change: transform;
-  border: 1px solid rgba(0, 0, 0, 1);
 }
 .survey-modal.active {
-  transform: translate(0, -50%);
+  transform: translateY(-50%) translateX(0);
   opacity: 1;
   visibility: visible;
   pointer-events: all;
 }
-/* .survey-toggle {
-  transition: right 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.3s ease,
-              transform 0.4s ease;
-} */
+.survey-modal.closing {
+  transform: translateY(-50%) translateX(100%);
+  opacity: 0;
+  visibility: visible;
+  pointer-events: none;
+}
 
+/* Ox — həmişə fixed, modal ilə sinxronize JS ilə hərəkət edir */
 .survey-toggle {
   position: fixed;
-  bottom: 235px;
+  top: 65%;
   right: 0;
-
-  width: 60px;
-  height: 119px;
-
+  transform: translateY(-50%);
+  width: 40px;
+  height: 100px;
   background: var(--requestBg);
-  color: var(--arrowColor);
-
+  border-right: none;
+  border-radius: 8px 0 0 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
-  border-radius: 10px 0 0 10px;
-
+  font-size: 30px;
+  color: rgb(37, 36, 36);
   z-index: 10000;
+  transition: right 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Modal açıq olanda ox modalın soluna keçir */
+.survey-toggle.modal-open {
+  right: 320px;
+}
 
-  transition:
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    width 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    border-radius 0.5s ease;
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #161414;
 }
-.survey-toggle.handoff {
-  width: 300px; /* modal width-ə yaxın */
-  border-radius: 10px 0 0 10px;
-  transform: translateY(0);
-}
-.survey-toggle.pop {
-  transform: scale(1.2);
-}
+
 .survey-text {
   font-size: 16px;
   font-weight: 700;
   color: var(--menuColor);
   background-color: var(--transitionBg);
-  padding: 10px;
-  border-radius: 3px;
+  padding: 7px 10px 3px 11px;
+  margin-bottom: 10px;
 }
-
-/* CLOSE BUTTON */
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 28px;
-  border: none;
-  background: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: var(--menuColor);
-}
-
-.survey-modal.closing {
-  transform: translate(140%, -50%);
-  opacity: 0;
-}
-/* survey result bar */
-.survey-results {
+.survey-content {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
-
-.result-item {
+.custom-radio {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  cursor: pointer;
+  margin: 6px 0;
+  font-size: 14px;
   font-weight: 700;
   color: var(--menuColor);
 }
-
+.custom-radio input {
+  display: none;
+}
+.radio-mark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  margin-right: 13px;
+  position: relative;
+  flex-shrink: 0;
+}
+.radio-mark::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background: rgba(110, 105, 105, 1);
+  border: 1px solid rgba(22, 21, 21, 1);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s;
+}
+.custom-radio input:checked + .radio-mark::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.survey-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.vote-btn,
+.result-btn {
+  border: none;
+  padding: 4px 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--whiteColor);
+  color: var(--menuColor);
+}
+.survey-results {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--menuColor);
+  font-size: 14px;
+}
 .bar {
   flex: 1;
-  height: 6px;
-  background: #ddd;
-  margin: 0 10px;
+  height: 7px;
+  background: var(--whiteColor);
   border-radius: 5px;
   overflow: hidden;
 }
-
 .bar-fill {
   height: 100%;
 }
-
 .bar-fill.yes {
-  background: green;
+  background: var(--barNo);
 }
-
 .bar-fill.no {
-  background: red;
+  background: var(--barYes);
 }
-/* sss son */
-
 /* sorgu end */
 /* news */
 .news-carousel {
@@ -500,7 +371,7 @@ a {
   text-align: center;
   font-size: 18px;
   font-weight: 400;
-  z-index: 2;
+  z-index: 100;
   text-transform: uppercase;
   font-family: var(--fontNivea);
 }
