@@ -1,8 +1,13 @@
 .faq-section {
   color: var(--menuColor);
-  margin: 76px 0;
+  margin: 26px 0;
 }
 
+
+.apply-info{
+  font-size: 18px;
+  color: var(--menuColor);
+}
 .apply-left {
   font-size: 25px;
   padding: 10px;

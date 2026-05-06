@@ -1,3 +1,7 @@
-.announcements .laws-blog{
-    text-transform: capitalize;
+.announcements .laws-blog {
+  text-transform: uppercase;
+}
+
+.announcement-blog {
+  margin: 31px 0;
 }
