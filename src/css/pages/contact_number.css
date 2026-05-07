@@ -1,7 +1,5 @@
 .addr-table-wrap {
-  /* max-width: 900px; */
   margin: 0 auto;
-  /* padding: 0 20px; */
 }
 
 .addr-table-title {
@@ -26,7 +24,7 @@
 }
 
 .addr-table-wrap {
-  text-align: center; /* title-ı ortala */
+  text-align: center; 
 }
 
 .addr-table {

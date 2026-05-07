@@ -5,7 +5,6 @@
 .main .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* grid-gap: 1rem; */
   grid-gap: 31px 10px;
   justify-content: center;
   align-items: center;

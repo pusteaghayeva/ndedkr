@@ -1,10 +1,6 @@
 .footer {
   color: var(--menuColor);
-  /* background-color: var(--bgColor); */
-  /* border: 1px solid var(--bgBorderColor); */
-  /* width: 80%; */
   margin: 0 auto;
-  /* border-radius: 15px; */
   padding: 15px 35px;
   border: 1px solid var(--bgBorderColor);
 }
@@ -45,7 +41,6 @@
 }
 
 .footer-copyright {
-  /* margin-top: 17px; */
   background-color: var(--navBg);
   text-align: center;
   padding: 22px 0;
