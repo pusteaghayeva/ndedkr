@@ -147,7 +147,7 @@ a {
   width: 17px;
   height: 17px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid var(--blackColor);
   background-color: rgba(204, 196, 196, 1);
 }
 /* sorgu */
@@ -173,7 +173,7 @@ a {
   transform: translateY(-50%) translateX(100%);
   width: 320px;
   background: var(--requestBg);
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid var(--blackColor);
   border-right: none;
   border-radius: 7px;
   padding: 6px 10px 17px;
@@ -262,7 +262,7 @@ a {
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid var(--blackColor);
   border-radius: 50%;
   margin-right: 13px;
   position: relative;

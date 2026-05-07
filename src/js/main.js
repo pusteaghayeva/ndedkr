@@ -370,3 +370,13 @@ document.addEventListener("DOMContentLoaded", function () {
     modalClose.style.display = "block";
   });
 });
+
+// checkbox
+const applyCheckboxes = document.querySelectorAll('input[name="apply_type"]');
+applyCheckboxes.forEach(cb => {
+  cb.addEventListener("change", function () {
+    applyCheckboxes.forEach(other => {
+      if (other !== this) other.checked = false;
+    });
+  });
+});

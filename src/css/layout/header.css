@@ -162,21 +162,21 @@ a:focus-visible {
   padding: 8px 0;
   margin-top: 0;
   min-width: 220px;
-  /* background-color: var(--navBg); */
   background-color: var(--whiteColor);
-  color: #6E9EBE;
+  /* color: #6e9ebe; */
 }
 
 .menu-section .dropdown-item {
   padding: 10px 20px;
   font-size: 18px;
-  color: #6E9EBE;
+  color: var(--menuColor);
   transition: all 0.3s ease;
 }
 
 .menu-section .dropdown-item:hover {
-  background-color: var(--whiteColor);
-  color: var(--menuColor);
+  /* background-color: var(--whiteColor); */
+  background-color: #6e9ebe;
+  color: var(--whiteColor);
   padding-left: 15px;
 }
 
