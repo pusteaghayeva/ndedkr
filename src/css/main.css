@@ -933,23 +933,6 @@ a {
 .page-link {
   color: var(--menuColor);
 }
-@media (min-width: 1900px) {
-  .survey-modal {
-    width: 25%;
-    top: 41%;
-    height: 253px;
-  }
-
-  .survey-toggle.modal-open {
-    right: 25%;
-  }
-  .survey-text {
-    font-size: 21px;
-  }
-  .custom-radio {
-    font-size: 16px;
-  }
-}
 @media (max-width: 992px) {
   .news-carousel .carousel-title {
     width: 100%;
