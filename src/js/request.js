@@ -68,3 +68,31 @@ document.addEventListener("DOMContentLoaded", function () {
     modalClose.style.display = "block";
   });
 });
+
+function alignToggleToModal() {
+  const modal = document.getElementById('surveyModal');
+  const toggle = document.getElementById('surveyToggle');
+  const progressWrap = document.querySelector('.progress-wrap');
+
+  const modalRect = modal.getBoundingClientRect();
+  const modalCenterY = modalRect.top + modalRect.height / 2;
+
+  const progressTop = progressWrap
+    ? progressWrap.getBoundingClientRect().top
+    : window.innerHeight;
+
+  const toggleHeight = toggle.offsetHeight; 
+  const maxAllowedCenter = progressTop - toggleHeight / 2 - 8;
+
+  const finalY = Math.min(modalCenterY, maxAllowedCenter);
+
+  toggle.style.top = finalY + 'px';
+  toggle.style.transform = 'translateY(-50%)';
+    toggle.style.top = finalY + 'px';
+  toggle.style.transform = 'translateY(-50%)';
+  toggle.style.opacity = '1'; // ← bunu əlavə et
+}
+
+window.addEventListener('load', alignToggleToModal);
+
+window.addEventListener('resize', alignToggleToModal);

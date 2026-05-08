@@ -161,7 +161,7 @@ a {
 
 .survey-modal {
   position: fixed;
-  top: 59%;
+  top: 55%;
   right: 0;
   transform: translateY(-50%) translateX(100%);
   width: 320px;
@@ -193,7 +193,7 @@ a {
 
 .survey-toggle {
   position: fixed;
-  top: 65%;
+  /* top: 65%; */
   right: 0;
   transform: translateY(-50%);
   width: 40px;
@@ -208,10 +208,14 @@ a {
   font-size: 30px;
   color: rgb(37, 36, 36);
   z-index: 10000;
-  transition: right 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    right 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease-in;
+  opacity: 0;
 }
 .survey-toggle.modal-open {
   right: 320px;
+  opacity: 1; 
 }
 
 .modal-close {
@@ -735,7 +739,7 @@ a {
 }
 
 .useful-links-img {
-  width: 93px !important;
+  width: 85px !important;
   height: 85px;
   border-radius: 50%;
   position: absolute;
@@ -929,6 +933,7 @@ a {
 .page-link {
   color: var(--menuColor);
 }
+
 @media (max-width: 992px) {
   .news-carousel .carousel-title {
     width: 100%;
@@ -961,15 +966,16 @@ a {
     display: none;
   }
   .survey-modal {
-    width: 100%;
     height: auto;
   }
-  .survey-content {
-    padding: 40px 0;
-  }
+
   .vote-btn,
   .result-btn {
     width: auto;
+  }
+
+  .e-services-social {
+    top: 77%;
   }
 }
 @media (max-width: 768px) {
