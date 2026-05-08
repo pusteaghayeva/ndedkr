@@ -81,16 +81,16 @@ function alignToggleToModal() {
     ? progressWrap.getBoundingClientRect().top
     : window.innerHeight;
 
-  const toggleHeight = toggle.offsetHeight; 
+  const toggleHeight = toggle.offsetHeight;
   const maxAllowedCenter = progressTop - toggleHeight / 2 - 8;
 
   const finalY = Math.min(modalCenterY, maxAllowedCenter);
 
   toggle.style.top = finalY + 'px';
   toggle.style.transform = 'translateY(-50%)';
-    toggle.style.top = finalY + 'px';
+  toggle.style.top = finalY + 'px';
   toggle.style.transform = 'translateY(-50%)';
-  toggle.style.opacity = '1'; // ← bunu əlavə et
+  toggle.style.opacity = '1';
 }
 
 window.addEventListener('load', alignToggleToModal);

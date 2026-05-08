@@ -299,14 +299,5 @@ $(document).ready(function () {
 
 })(jQuery);
 
-// checkbox
-const applyCheckboxes = document.querySelectorAll('input[name="apply_type"]');
-applyCheckboxes.forEach(cb => {
-    cb.addEventListener("change", function () {
-        applyCheckboxes.forEach(other => {
-            if (other !== this) other.checked = false;
-        });
-    });
-});
 
 
