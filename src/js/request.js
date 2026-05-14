@@ -84,7 +84,7 @@ function alignToggleToModal() {
   const toggleHeight = toggle.offsetHeight; 
   const maxAllowedCenter = progressTop - toggleHeight / 2 - 8;
 
-  const finalY = Math.min(modalCenterY, maxAllowedCenter);
+  const finalY = Math.min(modalCenterY, maxAllowedCenter)/ 0.8;
 
   toggle.style.top = finalY + 'px';
   toggle.style.transform = 'translateY(-50%)';

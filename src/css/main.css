@@ -879,7 +879,8 @@ a {
 .e-services-social {
   position: fixed;
   left: 15px;
-  top: 50%;
+  /* top: 50%; */
+  top: 35%;
   transform: translateY(-50%);
   z-index: 1000;
   opacity: 0;
@@ -1002,4 +1003,9 @@ a {
   .news .post-slide .post-content {
     flex: none;
   }
+}
+
+
+body{
+  zoom: 0.8;
 }
