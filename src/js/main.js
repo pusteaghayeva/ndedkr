@@ -74,8 +74,8 @@ $(document).ready(function () {
         smartSpeed: 600,
 
         navText: [
-            "<img src='./src/img/arrowleft.svg'>",
-            "<img src='./src/img/arrowright.svg'>"
+            "<img src='/src/img/arrowleft.svg'>",
+            "<img src='/src/img/arrowright.svg'>"
         ],
 
         responsive: {
@@ -173,34 +173,43 @@ $(document).ready(function () {
         }
     });
 });
+// single news
+jQuery("#carousel").owlCarousel({
+    autoplay: true,
+    rewind: false,
+    margin: 0,
+    loop: true,
 
-jQuery(document).ready(function() {
-    var itemCount = jQuery("#carousel .item").length;
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
 
-    jQuery("#carousel").owlCarousel({
-        autoplay: itemCount > 1,
-        rewind: false,
-        margin: 0,
-        loop: itemCount > 1,
-        animateOut: itemCount > 1 ? 'fadeOut' : false,
-        animateIn: itemCount > 1 ? 'fadeIn' : false,
-        responsiveClass: true,
-        autoHeight: true,
-        autoplayTimeout: 10000,
-        smartSpeed: 2500,
-        nav: itemCount > 1,
-        navText: [
-            '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#306279" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>',
-            '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#306279" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>'
-        ],
-        responsive: {
-            0:    { items: 1 },
-            600:  { items: 1 },
-            1024: { items: 1 },
-            1366: { items: 1 }
+    responsiveClass: true,
+    autoHeight: true,
+    autoplayTimeout: 10000,
+    smartSpeed: 2500,
+    nav: true,
+    navText: [
+        '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path  fill="#306279" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>',
+        '<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path  fill="#306279" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>'],
+    responsive: {
+        0: {
+            items: 1
+        },
+
+        600: {
+            items: 1
+        },
+
+        1024: {
+            items: 1
+        },
+
+        1366: {
+            items: 1
         }
-    });
+    }
 });
+
 $(document).ready(function () {
 
     $("#transitions-slider").owlCarousel({
@@ -216,8 +225,8 @@ $(document).ready(function () {
         smartSpeed: 600,
 
         navText: [
-            "<img src='./src/img/arrowleft.svg'>",
-            "<img src='./src/img/arrowright.svg'>"
+            "<img src='/src/img/arrowleft.svg'>",
+            "<img src='/src/img/arrowright.svg'>"
         ],
 
         responsive: {
@@ -290,5 +299,12 @@ $(document).ready(function () {
 
 })(jQuery);
 
-
-
+// checkbox
+// const applyCheckboxes = document.querySelectorAll('input[name="apply_type"]');
+// applyCheckboxes.forEach(cb => {
+//     cb.addEventListener("change", function () {
+//         applyCheckboxes.forEach(other => {
+//             if (other !== this) other.checked = false;
+//         });
+//     });
+// });

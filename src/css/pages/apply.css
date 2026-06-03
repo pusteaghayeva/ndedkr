@@ -141,6 +141,16 @@
   display: none;
 }
 
+.apply-type-box {
+  width: 20px;
+  height: 18px;
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 3px;
+  display: inline-block;
+  flex-shrink: 0;
+  position: relative;
+  transition: 0.2s;
+}
 
 .apply-type-item input[type="checkbox"]:checked + .apply-type-box {
   background: var(--menuColor);
