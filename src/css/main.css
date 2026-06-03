@@ -913,11 +913,11 @@ a {
 }
 
 #services-slider .owl-nav button.owl-prev {
-  left: 0;
+  left: -45px;
 }
 
 #services-slider .owl-nav button.owl-next {
-  right: 0;
+  right: -45px;
 }
 
 #services-slider .owl-nav button.owl-prev:hover,
