@@ -1,9 +1,16 @@
-// sorgu
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("surveyModal");
     const overlay = document.getElementById("surveyOverlay");
     const modalClose = document.getElementById("modalClose");
     const toggle = document.getElementById("surveyToggle");
+    const surveyContent = modal.querySelector(".survey-content");
+    const surveyResults = document.getElementById("surveyResults");
+    const radios = modal.querySelectorAll('input[name="q1_modal"]');
+    const backBtn = document.getElementById("backToVote");
+    const voteBtn = modal.querySelector(".vote-btn");
+    const resultBtn = modal.querySelector(".result-btn");
+
+    let userClosed = false;
 
     function openModal() {
         modal.style.visibility = "";
@@ -28,27 +35,75 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 700);
     }
 
-    setTimeout(openModal, 500);
+    const services = document.querySelector(".e-services");
+    const ENTER_OFFSET = 120;
 
-    modalClose.addEventListener("click", closeModal);
-    overlay.addEventListener("click", closeModal);
+    function updateSurvey() {
+        if (!services) return;
+        if (window.innerWidth < 992) return;
+
+        const esTop = services.getBoundingClientRect().top;
+        if (esTop <= ENTER_OFFSET) {
+            if (!modal.classList.contains("active") && !modal.classList.contains("closing")) {
+                openModal();
+            }
+        } else {
+            if (modal.classList.contains("active")) {
+                closeModal();
+            }
+        }
+    }
+
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            requestAnimationFrame(() => { updateSurvey(); ticking = false; });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener("resize", updateSurvey);
+
+    // Mobil üçün - yalnız bir dəfə açılsın
+    if (window.innerWidth < 992) {
+        let mobileOpened = false;
+        const mobileObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !mobileOpened && !userClosed) {
+                        mobileOpened = true;
+                        openModal();
+                        mobileObserver.disconnect();
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+        if (services) mobileObserver.observe(services);
+    }
+
+    modalClose.addEventListener("click", () => {
+        userClosed = true;
+        closeModal();
+    });
+
+    overlay.addEventListener("click", () => {
+        userClosed = true;
+        closeModal();
+    });
+
     toggle.addEventListener("click", function () {
         if (modal.classList.contains("active")) {
+            userClosed = true;
             closeModal();
         } else {
+            userClosed = false;
             openModal();
         }
     });
 
-    const voteBtn = modal.querySelector(".vote-btn");
-    const resultBtn = modal.querySelector(".result-btn");
-    const surveyContent = modal.querySelector(".survey-content");
-    const surveyResults = document.getElementById("surveyResults");
-    const radios = modal.querySelectorAll('input[name="q1_modal"]');
-    const backBtn = document.getElementById("backToVote");
-
     voteBtn.disabled = true;
-    radios.forEach(r => r.addEventListener("change", () => voteBtn.disabled = false));
+    radios.forEach((r) => r.addEventListener("change", () => (voteBtn.disabled = false)));
 
     resultBtn.addEventListener("click", () => {
         surveyContent.style.display = "none";
@@ -64,9 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function alignToggleToModal() {
-    const modal = document.getElementById('surveyModal');
-    const toggle = document.getElementById('surveyToggle');
-    const progressWrap = document.querySelector('.progress-wrap');
+    const modal = document.getElementById("surveyModal");
+    const toggle = document.getElementById("surveyToggle");
+    const progressWrap = document.querySelector(".progress-wrap");
 
     const modalRect = modal.getBoundingClientRect();
     const modalCenterY = modalRect.top + modalRect.height / 2;
@@ -80,13 +135,10 @@ function alignToggleToModal() {
 
     const finalY = Math.min(modalCenterY, maxAllowedCenter);
 
-    toggle.style.top = finalY + 'px';
-    toggle.style.transform = 'translateY(-50%)';
-    toggle.style.top = finalY + 'px';
-    toggle.style.transform = 'translateY(-50%)';
-    toggle.style.opacity = '1'; // ← bunu əlavə et
+    toggle.style.top = finalY + "px";
+    toggle.style.transform = "translateY(-50%)";
+    toggle.style.opacity = "1";
 }
 
-window.addEventListener('load', alignToggleToModal);
-
-window.addEventListener('resize', alignToggleToModal);
+window.addEventListener("load", alignToggleToModal);
+window.addEventListener("resize", alignToggleToModal);

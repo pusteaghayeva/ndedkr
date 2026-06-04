@@ -30,9 +30,9 @@
     ></script>
   </head>
 
-  <body>
-    <a href="./" class="fixed-mail-icon">
-      <img src="./src/img/mail.svg" alt="Mail Icon" />
+   <body>
+    <a href="./apply.html" class="fixed-mail-icon">
+      <img src="./src/img/mail.svg" alt="Mail Icon" class="fixed-mail-img" />
     </a>
     <div class="progress-wrap active-progress">
       <svg
@@ -51,19 +51,55 @@
         ></path>
       </svg>
     </div>
-    <header class="position-relative">
-      <div class="header-first-bg"></div>
-      <div class="container">
-        <a href="index.html" class="header-img">
-          <img src="./src/img/gerb.png" alt="" />
-          <p class="header-name">
-            NAXÇIVAN MUXTAR RESPUBLİKASININ İQTİSADİYYAT NAZİRLİYİ
-            <br />
-            YANINDA ƏMLAK MƏSƏLƏLƏRİ DÖVLƏT XİDMƏTİ <br />
-            DAŞINMAZ ƏMLAKIN DÖVLƏT KADASTRI VƏ REYESTRI PUBLIK HÜQUQİ ŞƏXS
-          </p>
-        </a>
+    <div class="survey-overlay" id="surveyOverlay"></div>
+    <div class="survey-modal" id="surveyModal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="survey-content">
+        <p class="survey-text">
+          Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
+          üçün əsas sənəd hesab edilmir. Bunu bilirsinizmi?
+        </p>
+        <label class="custom-radio">
+          <input type="radio" name="q1_modal" />
+          <span class="radio-mark"></span> Bəli
+        </label>
+        <label class="custom-radio">
+          <input type="radio" name="q1_modal" />
+          <span class="radio-mark"></span> Xeyr
+        </label>
+        <div class="survey-actions">
+          <button class="vote-btn">Səs ver</button>
+          <button class="result-btn">Nəticələr</button>
+        </div>
       </div>
+      <div class="survey-results" id="surveyResults" style="display: none">
+        <p class="survey-text">
+          Etibarnamə daşınmaz əmlak üzərində mülkiyyət hüquqlarının qeydiyyatı
+          üçün əsas sənəd hesab edilmir. Bunu bilirsinizmi?
+        </p>
+        <div class="result-item">
+          <span>Bəli</span>
+          <div class="bar">
+            <div class="bar-fill yes" style="width: 68%"></div>
+          </div>
+          <span>68%</span>
+        </div>
+        <div class="result-item">
+          <span>Xeyr</span>
+          <div class="bar">
+            <div class="bar-fill no" style="width: 36%"></div>
+          </div>
+          <span>36%</span>
+        </div>
+        <button class="result-btn" id="backToVote">Geri</button>
+      </div>
+    </div>
+    <div class="survey-toggle" id="surveyToggle">&#10095;</div>
+
+    <header class="position-relative">
+      <a href="index.html" class="header-img">
+        <img src="./src/img/header.jpeg" alt="" />
+      </a>
       <div class="menu-section">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -82,8 +118,12 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./index.html">
-                      <img src="./src/img/home.svg" />
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="./index.html"
+                    >
+                      <img src="./src/img/home.svg" class="nav-link-home" />
                     </a>
                   </li>
                   <li class="nav-item dropdown">
@@ -162,42 +202,19 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item" href="./news.html">Xəbərlər</a>
+                        <a class="dropdown-item" href="news.html">Xəbərlər</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="./news.html"
-                          >Məqalələr</a
-                        >
+                        <a class="dropdown-item" href="news.html">Məqalələr</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="./gallery.html"
+                        <a class="dropdown-item" href="gallery.html"
                           >Fotoqalereya</a
                         >
                       </li>
                       <li>
                         <a class="dropdown-item" href="./video-gallery.html"
                           >Videoqalereya</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      data-bs-toggle="dropdown"
-                    >
-                      Elanlar
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="announcements.html"
-                          >İş elanları</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="announcements.html"
-                          >Digər elanlar</a
                         >
                       </li>
                     </ul>
@@ -218,6 +235,7 @@
                       </li>
                     </ul>
                   </li>
+
                   <li class="nav-item dropdown">
                     <a
                       class="nav-link dropdown-toggle"
@@ -249,8 +267,30 @@
                       </li>
                     </ul>
                   </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      data-bs-toggle="dropdown"
+                    >
+                      Elanlar
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="announcements.html"
+                          >İş elanları</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="announcements.html"
+                          >Digər elanlar</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+
                   <li class="nav-item">
-                    <a class="nav-link" href="index.html#contact"> Əlaqə </a>
+                    <a class="nav-link" href="#contact"> Əlaqə </a>
                   </li>
 
                   <li class="nav-item search-wrapper">
@@ -268,7 +308,6 @@
         </nav>
       </div>
     </header>
-
     <main>
       <section class="leadership-section">
         <div class="container">
@@ -278,10 +317,10 @@
           <div class="leader-top">
             <a href="./single_management.html" class="leader-card">
               <div class="leader-img-wrap">
-                <img src="./src/img/management1.jpg" alt="" />
+                <img src="./src/img/management.png" alt="" />
               </div>
               <div class="leader-info">
-                <p class="leader-name">Nəcəfalıyev Nəcəfəli Əziz oğlu</p>
+                <p class="leader-name">Nəcəfalıyev Nəcəfalı Əziz oğlu</p>
                 <p class="leader-position">İdarə Heyətinin sədri</p>
               </div>
             </a>
@@ -293,7 +332,7 @@
                 <img src="./src/img/management2.jpg" alt="" />
               </div>
               <div class="leader-info">
-                <p class="leader-name">Nəcəfalıyev Nəcəfəli Əziz oğlu</p>
+                <p class="leader-name">Nəcəfalıyev Nəcəfalı Əziz oğlu</p>
                 <p class="leader-position">İdarə Heyətinin sədri</p>
               </div>
             </a>
@@ -303,7 +342,7 @@
                 <img src="./src/img/management3.jpg" alt="" />
               </div>
               <div class="leader-info">
-                <p class="leader-name">Nəcəfalıyev Nəcəfəli Əziz oğlu</p>
+                <p class="leader-name">Nəcəfalıyev Nəcəfalı Əziz oğlu</p>
                 <p class="leader-position">İdarə Heyətinin sədri</p>
               </div>
             </a>

@@ -32,7 +32,7 @@
 
   <body>
     <a href="./apply.html" class="fixed-mail-icon">
-      <img src="./src/img/mail.svg" alt="Mail Icon" />
+      <img src="./src/img/mail.svg" alt="Mail Icon" class="fixed-mail-img" />
     </a>
     <div class="progress-wrap active-progress">
       <svg
@@ -97,19 +97,9 @@
     <div class="survey-toggle" id="surveyToggle">&#10095;</div>
 
     <header class="position-relative">
-      <!--      <div class="header-first-bg"></div>-->
-      <!--      <div class="container">-->
       <a href="index.html" class="header-img">
-        <!--          <img src="./src/img/gerb.png" alt="" />-->
-        <!--          <p class="header-name">-->
-        <!--            NAXÇIVAN MUXTAR RESPUBLİKASININ İQTİSADİYYAT NAZİRLİYİ-->
-        <!--            <br />-->
-        <!--            YANINDA ƏMLAK MƏSƏLƏLƏRİ DÖVLƏT XİDMƏTİ <br />-->
-        <!--            DAŞINMAZ ƏMLAKIN DÖVLƏT KADASTRI VƏ REYESTRI PUBLİK HÜQUQİ ŞƏXS-->
-        <!--          </p>-->
         <img src="./src/img/header.jpeg" alt="" />
       </a>
-      <!--      </div>-->
       <div class="menu-section">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -128,8 +118,12 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./index.html">
-                      <img src="./src/img/home.svg" />
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="./index.html"
+                    >
+                      <img src="./src/img/home.svg" class="nav-link-home" />
                     </a>
                   </li>
                   <li class="nav-item dropdown">
@@ -231,27 +225,6 @@
                       href="#"
                       data-bs-toggle="dropdown"
                     >
-                      Elanlar
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="announcements.html"
-                          >İş elanları</a
-                        >
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="announcements.html"
-                          >Digər elanlar</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      data-bs-toggle="dropdown"
-                    >
                       Hesabatlar
                     </a>
                     <ul class="dropdown-menu">
@@ -262,6 +235,7 @@
                       </li>
                     </ul>
                   </li>
+
                   <li class="nav-item dropdown">
                     <a
                       class="nav-link dropdown-toggle"
@@ -293,6 +267,28 @@
                       </li>
                     </ul>
                   </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      data-bs-toggle="dropdown"
+                    >
+                      Elanlar
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="announcements.html"
+                          >İş elanları</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="announcements.html"
+                          >Digər elanlar</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link" href="#contact"> Əlaqə </a>
                   </li>
@@ -436,16 +432,8 @@
           <div class="services-carousel">
             <div id="services-slider" class="owl-carousel owl-theme">
 
-              <div class="services-post-slide">
-                <a href="" class="services-post-slide-abs" target="blank"></a>
-                <div class="services-icon-wrap">
-                  <img src="./src/img/services2.png" class="services-img" />
-                </div>
-                <div class="post-content">
-                  <h3 class="post-title">Xidmət haqqını ödə</h3>
-                </div>
-              </div>
-              <div class="services-post-slide">
+
+               <div class="services-post-slide">
                 <a href="" class="services-post-slide-abs"></a>
                 <div class="services-icon-wrap">
                   <img src="./src/img/services3.png" class="services-img" />
@@ -456,13 +444,37 @@
                   </h3>
                 </div>
               </div>
+
+
+              <div class="services-post-slide">
+                <a href="" class="services-post-slide-abs" target="blank"></a>
+                <div class="services-icon-wrap">
+                  <img src="./src/img/services2.png" class="services-img" />
+                </div>
+                <div class="post-content">
+                  <h3 class="post-title">Xidmət haqqını ödə</h3>
+                </div>
+              </div>
+
+               <div class="services-post-slide">
+                <a href="" class="services-post-slide-abs"></a>
+                <div class="services-icon-wrap">
+                  <img src="./src/img/services3.png" class="services-img" />
+                </div>
+                <div class="post-content">
+                  <h3 class="post-title">
+                    Əmlak kalkulyatoru
+                  </h3>
+                </div>
+              </div>
+             
               <div class="services-post-slide">
                 <a
                   href="https://e-services.economy.gov.az/"
                   class="services-post-slide-abs"
                   target="blank"
                 ></a>
-                 <div class="services-icon-wrap">
+                <div class="services-icon-wrap">
                   <img src="./src/img/services4.png" class="services-img" />
                 </div>
                 <div class="post-content">
@@ -581,7 +593,9 @@
       <section class="useful-links-section">
         <div class="container">
           <div class="e-services-carousel">
-            <h2 class="e-services-title useful-links-title">Faydalı linklər</h2>
+            <h2 class="e-services-title useful-links-title">
+              Faydalı keçidlər
+            </h2>
           </div>
           <div id="useful-links" class="owl-carousel">
             <div class="useful-links-slide">
