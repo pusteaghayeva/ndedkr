@@ -38,21 +38,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const services = document.querySelector(".e-services");
     const ENTER_OFFSET = 120;
 
-    function updateSurvey() {
-        if (!services) return;
-        if (window.innerWidth < 992) return;
 
-        const esTop = services.getBoundingClientRect().top;
-        if (esTop <= ENTER_OFFSET) {
-            if (!modal.classList.contains("active") && !modal.classList.contains("closing")) {
-                openModal();
-            }
-        } else {
-            if (modal.classList.contains("active")) {
-                closeModal();
-            }
+    function updateSurvey() {
+    if (!services) return;
+    if (window.innerWidth < 992) return;
+
+    if (userClosed) return;
+
+    const esTop = services.getBoundingClientRect().top;
+    if (esTop <= ENTER_OFFSET) {
+        if (!modal.classList.contains("active") && !modal.classList.contains("closing")) {
+            openModal();
+        }
+    } else {
+        if (modal.classList.contains("active")) {
+            closeModal();
         }
     }
+}
 
     let ticking = false;
     window.addEventListener("scroll", () => {
@@ -92,15 +95,18 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModal();
     });
 
+
+
+
     toggle.addEventListener("click", function () {
-        if (modal.classList.contains("active")) {
-            userClosed = true;
-            closeModal();
-        } else {
-            userClosed = false;
-            openModal();
-        }
-    });
+    if (modal.classList.contains("active")) {
+        userClosed = true;
+        closeModal();
+    } else {
+        userClosed = false;
+        openModal();
+    }
+});
 
     voteBtn.disabled = true;
     radios.forEach((r) => r.addEventListener("change", () => (voteBtn.disabled = false)));

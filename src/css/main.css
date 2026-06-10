@@ -200,7 +200,6 @@ a {
 
 .survey-toggle {
   position: fixed;
-  /* top: 65%; */
   right: 0;
   transform: translateY(-50%);
   width: 40px;
@@ -893,7 +892,7 @@ a {
   justify-content: center;
   text-align: center;
   color: var(--transitionColor2);
-  font-size: 16px;
+  font-size: 14px;
 }
 .transitions-post-slide {
   position: relative;
