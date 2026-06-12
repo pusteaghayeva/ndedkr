@@ -351,8 +351,7 @@ a {
 }
 
 .news-carousel .carousel-title {
-  transform: none;
-  width: 100%;
+  width: 76%;
   min-width: unset;
   height: 89px;
   display: flex;
@@ -370,6 +369,10 @@ a {
   z-index: 100;
   padding: 0;
   margin: 0 auto;
+  position: absolute;
+  bottom: -9%;
+  left: 50%;
+  transform: translate(-50%, 9%);
 }
 
 .carousel-title-arrow {
@@ -405,8 +408,13 @@ a {
   padding: 0 5px 0 0;
   margin: 0;
   width: auto;
+  display: none;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
 .news-carousel .carousel-item {
   overflow: visible;
   transition: opacity 0.7s ease-in-out;

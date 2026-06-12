@@ -86,7 +86,6 @@ header {
   z-index: 9999;
 }
 
-
 .header-img {
   position: relative;
   display: block;
@@ -197,15 +196,20 @@ a:focus-visible {
 }
 
 .menu-section .nav-item {
-  margin: 0 24px;
+  margin: 0;
 }
 
 .menu-section .search-wrapper {
   position: relative;
 }
+.menu-section .nav-item.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .menu-section .search-icon {
-  font-size: 22px;
+  font-size: 18px;
   color: var(--searchColor);
   cursor: pointer;
   padding: 10px;
@@ -275,7 +279,7 @@ a:focus-visible {
 }
 @media (max-width: 1500px) {
   .menu-section .nav-item {
-    margin: 0 24px;
+    margin: 0;
   }
 
   .menu-section .nav-link {
