@@ -299,3 +299,82 @@ $(document).ready(function () {
 
 })(jQuery);
 
+document.addEventListener('DOMContentLoaded', function () {
+    const timeEl = document.querySelector('.time-section');
+
+    const months = {
+        az: [
+            'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun',
+            'iyul', 'avqust', 'sentyabr', 'oktyabr', 'noyabr', 'dekabr'
+        ],
+        en: [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ],
+        ru: [
+            'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+            'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+        ]
+    };
+
+    function getLang() {
+        const pathLang = window.location.pathname.split('/')[1];
+        return ['az', 'en', 'ru'].includes(pathLang) ? pathLang : 'az';
+    }
+
+    function getAzYearSuffix(year) {
+        const lastDigit = year % 10;
+        const lastTwo = year % 100;
+
+        if ([10, 30].includes(lastTwo)) return 'cu';
+        if ([20, 50].includes(lastTwo)) return 'ci';
+        if ([40, 60].includes(lastTwo)) return 'cı';
+        if ([70, 80].includes(lastTwo)) return 'ci';
+        if (lastTwo === 90) return 'cı';
+
+        const suffixes = {
+            1: 'ci',
+            2: 'ci',
+            3: 'cü',
+            4: 'cü',
+            5: 'ci',
+            6: 'cı',
+            7: 'ci',
+            8: 'ci',
+            9: 'cu',
+            0: 'cı'
+        };
+
+        return suffixes[lastDigit] || 'ci';
+    }
+
+    function pad(number) {
+        return number.toString().padStart(2, '0');
+    }
+
+    function renderDateTime() {
+        const lang = getLang();
+        const now = new Date();
+
+        const day = now.getDate();
+        const month = months[lang][now.getMonth()];
+        const year = now.getFullYear();
+        const hour = pad(now.getHours());
+        const minute = pad(now.getMinutes());
+
+        let text = '';
+
+        if (lang === 'az') {
+            text = `${day} ${month} ${year}-${getAzYearSuffix(year)} il ${hour}:${minute}`;
+        } else if (lang === 'en') {
+            text = `${day} ${month} ${year}, ${hour}:${minute}`;
+        } else if (lang === 'ru') {
+            text = `${day} ${month} ${year} г. ${hour}:${minute}`;
+        }
+
+        timeEl.textContent = text;
+    }
+
+    renderDateTime();
+    setInterval(renderDateTime, 1000);
+});

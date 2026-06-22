@@ -43,16 +43,16 @@
 .footer-copyright {
   background-color: var(--transitionBg);
   text-align: center;
-  padding: 22px 0;
+  padding: 10px 0;
   color: var(--whiteColor);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   transition: all 0.4s;
 }
 .copyright-link {
   position: relative;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--menuColor);
   text-decoration: none;
 }
